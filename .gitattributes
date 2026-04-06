@@ -1,11 +1,18 @@
 * text=auto eol=lf
 
+# Keep your existing diff settings
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html
 *.md diff=markdown
 *.php diff=php
 
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+# Exclude non-core/generated/vendor-like things from language stats
+/public/build/** linguist-generated=true
+/node_modules/** linguist-vendored=true
+/vendor/** linguist-vendored=true
+/storage/** linguist-generated=true
+/bootstrap/cache/** linguist-generated=true
+
+# Treat Blade as HTML, or hide it if you want PHP to stand out more
+*.blade.php linguist-language=HTML
